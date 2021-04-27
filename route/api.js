@@ -129,7 +129,6 @@ router.post("/update/profilePic/:uid", (req, res) => {
 
   file.mv(destination, (err) => {
     if (err) {
-      console.error(err);
       return res.status(500).send({ msg: "file transfer issue" });
     }
   });

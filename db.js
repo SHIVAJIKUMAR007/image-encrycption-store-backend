@@ -8,6 +8,8 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
+// "mongodb://localhost:27017/authServiceDb"
+// "mongodb+srv://shivaji:Shivaji@007@cluster0.narig.mongodb.net/authServiceDb?retryWrites=true&w=majority"
 
 const userSchema = mongoose.Schema({
   name: String,
