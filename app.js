@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const apiRouter = require("./route/api");
-const bestRouter = require("./route/best");
+const uploadsRouter = require("./route/uploads");
+
 const fileUpload = require("express-fileupload");
 
 // middleware
@@ -17,7 +18,7 @@ app.use((req, res, next) => {
     next();
 });
 app.use("/api", apiRouter);
-app.use("/api/best", bestRouter);
+app.use("/uploads", uploadsRouter);
 
 // router
 app.get("/", (req, res) => {

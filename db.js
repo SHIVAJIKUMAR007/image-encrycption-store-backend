@@ -1,48 +1,28 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(
-  "mongodb+srv://shivaji:Shivaji@007@cluster0.narig.mongodb.net/authServiceDb?retryWrites=true&w=majority",
+  "mongodb+srv://shivaji:Shivaji@007@cluster0.narig.mongodb.net/issDb?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
   }
 );
-// "mongodb://localhost:27017/authServiceDb"
-// "mongodb+srv://shivaji:Shivaji@007@cluster0.narig.mongodb.net/authServiceDb?retryWrites=true&w=majority"
+// "mongodb://localhost:27017/issDb"
+// "mongodb+srv://shivaji:Shivaji@007@cluster0.narig.mongodb.net/issDb?retryWrites=true&w=majority"
 
 const userSchema = mongoose.Schema({
-  name: String,
   username: String,
-  email: String,
   password: String,
-  bio: String,
   profilePic: String,
   signUpProcess: Boolean,
-  collageStatus: String,
-  passingYear: Number,
-  collageOfInterest: Array,
-  collageFull: String,
-  collageShort: String,
-  creditScore: Number,
-  timeOfSignup: Date,
 });
-
-// postNum: Number,
-// queNum: Number,
-// ansNum: Number,
-// strickNum: Number,
 
 const userModel = mongoose.model("users", userSchema);
 
-const countSchema = mongoose.Schema({
+const mediaSchema = mongoose.Schema({
   userId: String,
-  followers: Number,
-  following: Number,
-  postNum: Number,
-  queNum: Number,
-  ansNum: Number,
-  strickNum: Number,
+  mediaData: String,
 });
-const countModel = mongoose.model("counts", countSchema);
-module.exports = { userModel, countModel };
+const mediaModal = mongoose.model("medias", mediaSchema);
+module.exports = { userModel, mediaModal };
