@@ -44,7 +44,7 @@ router.get("/user/:id", (req, res) => {
 // login is here
 router.post("/login", (req, res) => {
   // find userdata by username
-  userModel.find({ email: req.body.email }).exec(async (err, data) => {
+  userModel.find({ username: req.body.username }).exec(async (err, data) => {
     if (err) throw err;
 
     if (data.length) {
